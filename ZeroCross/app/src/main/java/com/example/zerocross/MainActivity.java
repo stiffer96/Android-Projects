@@ -2,6 +2,7 @@ package com.example.zerocross;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     private int[][] winComb = {{0,1,2},{3,4,5},{6,7,8},{0,3,6,},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
 
+    MediaPlayer sound0,sound1,drawSound,winSound;
+
     public void dropIn(View view){
         ImageView field = (ImageView) view;
 
@@ -35,10 +38,16 @@ public class MainActivity extends AppCompatActivity {
 
             if(activePlayer == 0){
                 field.setImageResource(R.drawable.cross);
+                sound0.start();
+                sound1.pause();
+                sound1.seekTo(0);
                 activePlayer = 1;
             }
             else{
                 field.setImageResource(R.drawable.zero);
+                sound1.start();
+                sound0.pause();
+                sound0.seekTo(0);
                 activePlayer = 0;
             }
 
@@ -60,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
                     LinearLayout layout = findViewById(R.id.linearLayout);
                     layout.setVisibility(View.VISIBLE);
 
+                    layout.animate().rotationBy(3600f).setDuration(300);
+
+                    winSound.start();
+                    drawSound.pause();
+                    drawSound.seekTo(0);
                 }
                 else{
                     boolean gameIsOver = true;
@@ -72,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
                         textView.setText("It's a Tie ");
                         LinearLayout layout = findViewById(R.id.linearLayout);
                         layout.setVisibility(View.VISIBLE);
+
+                        layout.animate().rotationBy(3600f).setDuration(300);
+
+                        drawSound.start();
+                        winSound.pause();
+                        winSound.seekTo(0);
                     }
                 }
             }
@@ -82,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void  playAgain(View view){
+
+
         LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);
         layout.setVisibility(View.INVISIBLE);
 
@@ -101,6 +123,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+         sound0 = MediaPlayer.create(this,R.raw.cross);
+         sound1 = MediaPlayer.create(this,R.raw.cross);
+
+         drawSound = MediaPlayer.create(this,R.raw.drawsound);
+         winSound = MediaPlayer.create(this,R.raw.winclappingsound);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
