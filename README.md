@@ -32,3 +32,12 @@ git commit -m "Zero cross : Sound added but not working properly | Tables : App 
 progress bar and list view to show them "
 
 +-------------------------------------------------------------------------------------------------------------+
+Day Wednesday : 3-Sep-2021
+
+	--> Project : Timer App
+		--> Created timer app which sets timer with seek bar having start and stop button
+		--> when timer finished a boom sound played and image changed.
+		--> in between we can stop timer then again reset the timer to a specific time
+
+git commit -m "Created timer app with sound and image change function when it reaches zero"
++-------------------------------------------------------------------------------------------------------------+
