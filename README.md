@@ -31,7 +31,7 @@ Day Wednesday : 1-Sep-2021
 git commit -m "Zero cross : Sound added but not working properly | Tables : App for creating tables with the 
 progress bar and list view to show them "
 
-+-------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------+
 Day Wednesday : 3-Sep-2021
 
 	--> Project : Timer App
@@ -40,4 +40,20 @@ Day Wednesday : 3-Sep-2021
 		--> in between we can stop timer then again reset the timer to a specific time
 
 git commit -m "Created timer app with sound and image change function when it reaches zero"
-+-------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+Day Friday : 10-Sep-2021
+
+	--> Project : Download Image
+		--> In this project i have used Async task
+		--> create a image class in the main activity which extends Async tasks
+		--> And Async task < String , Void , Bitmap > accepts three generic types 
+		--> in which first is the parameter which we supply on time of executing and second is handler function
+			third is return type from doInBackground function of AsyncTask.
+		--> For calling this tasks we need to create object of image class then execute them by 
+			obj.execute().get() - it gets the return element.
+		--> In this project we supplied url of the image and return the bitmap from async task
+		--> and in image view we will set the bitmap.
+
+git commit -m "Download image project added which download image from url and show it in image view";
+
++-----------------------------------------------------------------------------------------------------------------------+
